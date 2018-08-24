@@ -1,4 +1,6 @@
 ## Release History
+* **0.3.3** 
+    *  `FEATURE` Remove all aria-* and attribute trigger 
 * **0.3.2**
     * `BUGFIX` Fixed bundling for es and umd builds
 * **0.3.1**

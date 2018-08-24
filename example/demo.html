@@ -1,0 +1,43 @@
+<script src="../src/index.js"></script>
+<script>
+  function show(){
+    Modal.show('modal1',
+      {
+        awaitCloseAnimation:true,
+        disableScroll:true,
+        onShow:(root)=>{console.log('onshow')},
+        onClose:(root,modalResult)=>{console.log(modalResult,document.getElementById('some').value,document.getElementById('other').value)
+      }
+    })
+  }
+</script>
+<button onclick="show()">Open Modal</button>
+<div class="modal" id="modal1"  style="display: none;">
+  <div class="modal-overlay" tabindex="-1" onclick="Modal.cancel()">
+    <div class="modal-container">
+      <div>
+        <header class="modal-header">
+          <h3 class="modal-title">
+            Modal
+          </h3>
+          <button class="cross" onclick="Modal.cancel()"></button>
+        </header>
+        <main class="modal-content">
+          <p>
+            Try hitting the <code>tab</code> key and notice how the focus stays within the modal itself. Also, <code>esc</code> to close modal.
+            <form>
+              <label for="some">Some</label>
+              <input type="text" placeholder="Some Text" id="some" value="some"/>
+              <label for="other">Other</label>
+              <input type="text" placeholder="Other Text" id="other" value="other"/>
+            </form>
+          </p>
+        </main>
+        <footer class="modal-footer">
+          <button onclick="Modal.ok()">OK</button>
+          <button  onclick="Modal.cancel()">Cancel</button>
+        </footer>
+      </div>
+    </div>
+  </div>
+</div>

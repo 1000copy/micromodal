@@ -21,9 +21,7 @@
     "dev": "concurrently \"yarn scripts:dev\" \"yarn styles:dev\"  \"yarn demo:watch\" \"yarn livereload\""
   },
   "keywords": [
-    "a11y",
-    "modal",
-    "accesible"
+    "modal"
   ],
   "author": "Indrashish Ghosh",
   "license": "MIT",
