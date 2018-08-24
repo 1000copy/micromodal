@@ -6,50 +6,50 @@ const Modal = (() => {
       onShow = () => {},
       onClose = () => {},
       disableScroll = false,
-      disableFocus = false,
+      disableFocus = false
     }) {
       this.modal = document.getElementById(targetModal)
-      this.config = {disableScroll,onShow, onClose, disableFocus }
+      this.config = {disableScroll, onShow, onClose, disableFocus}
       this.onClick = this.onClick.bind(this)
       this.onKeydown = this.onKeydown.bind(this)
       this.makecss()
     }
-    makecss(){
+    makecss () { //
       // container
       var mcontainer = this.modal.querySelector('.modal-container')
       Object.assign(mcontainer.style, {
-           'background-color': '#fff',
-            padding: '30px',
-            'max-width': '500px',
-            'max-height': '100vh',
-            'border-radius': '4px',
-            'overflow-y': 'auto',
-            'box-sizing': 'border-box'})
+        'background-color': '#fff',
+        padding: '30px',
+        'max-width': '500px',
+        'max-height': '100vh',
+        'border-radius': '4px',
+        'overflow-y': 'auto',
+        'box-sizing': 'border-box'})
       Object.assign(this.modal.style, {display: 'block'})
-      //overlay
+      // overlay
       var overlay = this.modal.querySelector('.modal-overlay')
       Object.assign(overlay.style, {position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'rgba(0,0,0,0.6)',
-            display: 'flex',
-            'justify-content': 'center',
-            'align-items': 'center'})
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: 'rgba(0,0,0,0.6)',
+        display: 'flex',
+        'justify-content': 'center',
+        'align-items': 'center'})
       // cross
       var cross = this.modal.querySelector('.cross')
-      cross.innerText = "\u2715"
-      Object.assign(cross.style, { border: 0,background:'transparent'})
+      cross.innerText = '\u2715'
+      Object.assign(cross.style, {border: 0, background: 'transparent'})
       // title
       var mtitle = this.modal.querySelector('.modal-title')
-      Object.assign(mtitle.style, {'margin-top': 0,'margin-bottom': 0})
+      Object.assign(mtitle.style, {'margin-top': 0, 'margin-bottom': 0})
       // header
       var mheader = this.modal.querySelector('.modal-header')
       Object.assign(mheader.style, {
-            display: 'flex',
-            'justify-content': 'space-between',
-            'align-items': 'center'})
+        display: 'flex',
+        'justify-content': 'space-between',
+        'align-items': 'center'})
     }
     showModal () {
       // this.makecss()
@@ -66,14 +66,14 @@ const Modal = (() => {
       this.removeEventListeners()
       this.scrollBehaviour('enable')
       this.activeElement.focus()
-      this.config.onClose(this.modal,this.modalResult)
+      this.config.onClose(this.modal, this.modalResult)
       modal.classList.remove('is-open')
     }
-    okModal(){
+    okModal () {
       this.modalResult = 'ok'
       this.closeModal()
     }
-    cancelModal(){
+    cancelModal () {
       this.modalResult = 'cancel'
       this.closeModal()
     }
@@ -149,7 +149,7 @@ const Modal = (() => {
       }
     }
   }
-  // class end 
+  // class end
   let activeModal = null
   const show = (targetModal, config) => {
     const options = config || {}
@@ -169,5 +169,5 @@ const Modal = (() => {
     activeModal.cancelModal()
     return activeModal.modalResult
   }
-  return { show, close,ok:okModal,cancel:cancelModal }
+  return { show, close, ok: okModal, cancel: cancelModal }
 })()
